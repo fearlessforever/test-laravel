@@ -52,7 +52,7 @@ class LoginController extends ApiController
                         'status' => 'success',
                         'status_code' => $this->getStatusCode(),
                         'message' => 'Already logged in',
-                        'user' => $this->userTransformer->transform($user)
+                        'data' => $this->userTransformer->transform($user)
                     ]);
                 }catch(JWTException $e){
                     $user->api_token = NULL;

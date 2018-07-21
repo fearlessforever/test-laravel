@@ -26,16 +26,14 @@ Route::group(['middleware' => 'cors', 'prefix' => '/v1'], function () {
 	Route::group(['prefix'=>'/player'],function(){
 		Route::get('/datatable','PlayerController@datatable');
 		Route::get('/get/{id}','PlayerController@getOne');
-		Route::post('/add','PlayerController@tambahData');
-		Route::post('/update','PlayerController@updateData');
-		Route::post('/delete','PlayerController@deleteData');
+		Route::get('/get_complete','PlayerController@getAutoComplete');
+		Route::post('/insert_update_delete','PlayerController@modifyData');
+		Route::get('/set-point/{mode}/{id}','PlayerController@setPoint');
 	});
 	// Game routes
 	Route::group(['prefix'=>'/game'],function(){
 		Route::get('/datatable','GameController@datatable');
 		Route::get('/get/{id}','GameController@getOne');
-		Route::post('/add','GameController@tambahData');
-		Route::post('/update','GameController@updateData');
-		Route::post('/delete','GameController@deleteData');
+		Route::post('/insert_update_delete','GameController@modifyData');
 	});
 });
